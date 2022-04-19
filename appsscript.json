@@ -1,0 +1,15 @@
+{
+  "timeZone": "America/New_York",
+  "dependencies": {
+    "libraries": [
+      {
+        "userSymbol": "TestGAS",
+        "version": "0",
+        "libraryId": "1CRjWWWYfjD7WzPl43RB1BiD7XDLJmR03eEpXr2LMh75yAq5qMlczOIfm",
+        "developmentMode": true
+      }
+    ]
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
+}
