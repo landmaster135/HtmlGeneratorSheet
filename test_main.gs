@@ -111,18 +111,6 @@ class Test_main{
 
 }
 
-// function mmain(){
-//   let a = TestGAS.createHoge("aaaa");
-//   // let aa = a.
-//   let b = a.getFuga();
-//   console.log(a)
-//   console.log(b)
-//   // Hoge.createHoge('fuga').getFuga()
-//   let c = TestGAS.createHoge("d").getFuga();
-//   console.log(c);
-// }
-
-
 function execute_Test_main(){
   let failureFuncs = tester.executeTestGas(Test_main);
 }
