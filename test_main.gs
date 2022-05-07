@@ -2,11 +2,12 @@
 let tester = TestGAS.createExecutor();
 
 class Test_main{
-  test_geHtmlByValues_1_1(){
+  test_getHtmlByValues_1_1(){
     const values = [ [ '', 'Python', 'GAS', 'GitHub', 'JavaScript' ]
                     , [ '', '', '', '', '' ]
                   ];
-    const actual = geHtmlByValues(values);
+    const textReplacingIfBlank = "";
+    const actual = getHtmlByValues(values, textReplacingIfBlank);
     const expected = `<table>
 <tr><th></th><th>Python</th><th>GAS</th><th>GitHub</th><th>JavaScript</th></tr>
 <tr><td></td><td></td><td></td><td></td><td></td></tr>
@@ -14,20 +15,34 @@ class Test_main{
     tester.assertEquals(actual, expected);
   }
 
-  test_geHtmlByValues_1_2(){
+  test_getHtmlByValues_1_2(){
     const values = [ [ '', 'Python', 'GAS', 'GitHub', 'JavaScript' ] ];
-    const actual = geHtmlByValues(values);
+    const textReplacingIfBlank = "";
+    const actual = getHtmlByValues(values, textReplacingIfBlank);
     const expected = `<table>
 <tr><th></th><th>Python</th><th>GAS</th><th>GitHub</th><th>JavaScript</th></tr>
 </table>`;
     tester.assertEquals(actual, expected);
   }
 
-  test_geHtmlByValues_1_3(){
+  test_getHtmlByValues_1_3(){
     const values = [ [ '' ] ];
-    const actual = geHtmlByValues(values);
+    const textReplacingIfBlank = "";
+    const actual = getHtmlByValues(values, textReplacingIfBlank);
     const expected = `<table>
 <tr><th></th></tr>
+</table>`;
+    tester.assertEquals(actual, expected);
+  }
+
+  test_getHtmlByValues_2_1(){
+    const values = [ [ '', 'Python', 'GAS', 'GitHub', 'JavaScript' ]
+                    , [ '', '', '', '', '' ]
+                  ];
+    const actual = getHtmlByValues(values);
+    const expected = `<table>
+<tr><th></th><th>Python</th><th>GAS</th><th>GitHub</th><th>JavaScript</th></tr>
+<tr><td>💩</td><td>💩</td><td>💩</td><td>💩</td><td>💩</td></tr>
 </table>`;
     tester.assertEquals(actual, expected);
   }
@@ -35,7 +50,8 @@ class Test_main{
   test_getTrByRow_1_1(){
     const row = [1, 2, 3];
     const isTh = false;
-    const actual = getTrByRow(row, isTh);
+    const textReplacingIfBlank = "";
+    const actual = getTrByRow(row, isTh, textReplacingIfBlank);
     const expected = "<tr><td>1</td><td>2</td><td>3</td></tr>";
     tester.assertEquals(actual, expected);
   }
@@ -43,7 +59,8 @@ class Test_main{
   test_getTrByRow_1_2(){
     const row = [1, 2, 3];
     const isTh = true;
-    const actual = getTrByRow(row, isTh);
+    const textReplacingIfBlank = "";
+    const actual = getTrByRow(row, isTh, textReplacingIfBlank);
     const expected = "<tr><th>1</th><th>2</th><th>3</th></tr>";
     tester.assertEquals(actual, expected);
   }
@@ -51,7 +68,8 @@ class Test_main{
   test_closeByTag_1_1(){
     const tag = "a";
     const innerText = "test";
-    const actual = closeByTag(tag, innerText);
+    const textReplacingIfBlank = "";
+    const actual = closeByTag(tag, innerText, textReplacingIfBlank);
     const expected = "<a>test</a>";
     tester.assertEquals(actual, expected);
   }
@@ -59,9 +77,36 @@ class Test_main{
   test_closeByTag_1_2(){
     const tag = "a";
     const innerText = "test";
-    const actual = closeByTag(tag, innerText);
+    const textReplacingIfBlank = "";
+    const actual = closeByTag(tag, innerText, textReplacingIfBlank);
     const expected = "<a>test<//a>";
     tester.assertNotEquals(actual, expected);
+  }
+
+  test_closeByTag_2_1(){
+    const tag = "<a href=";
+    const innerText = "test";
+    const textReplacingIfBlank = "";
+    tester.assertError(closeByTag, [tag, innerText, textReplacingIfBlank], Error);
+  }
+
+  test_closeByTag_2_2(){
+    const tag = "<a href=";
+    const innerText = "test";
+    tester.assertError(closeByTag, [tag, innerText], Error);
+  }
+
+  test_closeByTag_3_1(){
+    const tag = "a href=\"\">";
+    const innerText = "test";
+    const textReplacingIfBlank = "";
+    tester.assertError(closeByTag, [tag, innerText, textReplacingIfBlank], Error);
+  }
+
+  test_closeByTag_3_2(){
+    const tag = "a href=\"\">";
+    const innerText = "test";
+    tester.assertError(closeByTag, [tag, innerText], Error);
   }
 
 }
