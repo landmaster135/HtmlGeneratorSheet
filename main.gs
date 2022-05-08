@@ -1,21 +1,46 @@
 /**
  * @param {string[]} values
+ * @param {boolean} isTheadContained
  * @param {string} textReplacingIfBlank
  * @return {string}
 */
-function getHtmlByValues(values, textReplacingIfBlank="💩"){
-  let prefix = "<table>";
-  let suffix = "</table>";
+function getHtmlByValues(values, isTheadContained, textReplacingIfBlank="💩"){
+  const prefix = "<table>";
+  const suffix = "</table>";
+  const thead_start = "<thead>";
+  const thead_end = "</thead>";
+  const tbody_start = "<tbody>";
+  const tbody_end = "</tbody>";
+  let is_thead_added = false;
+  let is_tbody_added = false;
   let html = `${prefix}\n`;
   let tmp_tr = "";
   let isTh = false;
+  if(!isTheadContained){
+    is_thead_added = true;
+    is_tbody_added = true;
+  }
   for(let i = 0; i < values.length; i++){
     isTh = false;
     if(i === 0){
       isTh = true;
+      if(!is_thead_added){
+        html += thead_start;
+      }
+    }
+    if(is_thead_added && !is_tbody_added){
+      html += tbody_start;
+      is_tbody_added = true;
     }
     tmp_tr = getTrByRow(values[i], isTh, textReplacingIfBlank);
     html += `${tmp_tr}\n`;
+    if(!is_thead_added){
+      html += thead_end;
+      is_thead_added = true;
+    }
+  }
+  if(values.length !== 1 && isTheadContained){
+    html += tbody_end;
   }
   html += suffix;
   return html;
@@ -84,6 +109,6 @@ function getValuesBySelectedArea(){
 
 function main(){
   const values = getValuesBySelectedArea();
-  const html = getHtmlByValues(values, "");
+  const html = getHtmlByValues(values, true, "");
   console.log(html);
 }

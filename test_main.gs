@@ -6,8 +6,9 @@ class Test_main{
     const values = [ [ '', 'Python', 'GAS', 'GitHub', 'JavaScript' ]
                     , [ '', '', '', '', '' ]
                   ];
+    const isTheadContained = false;
     const textReplacingIfBlank = "";
-    const actual = getHtmlByValues(values, textReplacingIfBlank);
+    const actual = getHtmlByValues(values, isTheadContained, textReplacingIfBlank);
     const expected = `<table>
 <tr><th></th><th>Python</th><th>GAS</th><th>GitHub</th><th>JavaScript</th></tr>
 <tr><td></td><td></td><td></td><td></td><td></td></tr>
@@ -17,8 +18,9 @@ class Test_main{
 
   test_getHtmlByValues_1_2(){
     const values = [ [ '', 'Python', 'GAS', 'GitHub', 'JavaScript' ] ];
+    const isTheadContained = false;
     const textReplacingIfBlank = "";
-    const actual = getHtmlByValues(values, textReplacingIfBlank);
+    const actual = getHtmlByValues(values, isTheadContained, textReplacingIfBlank);
     const expected = `<table>
 <tr><th></th><th>Python</th><th>GAS</th><th>GitHub</th><th>JavaScript</th></tr>
 </table>`;
@@ -27,8 +29,9 @@ class Test_main{
 
   test_getHtmlByValues_1_3(){
     const values = [ [ '' ] ];
+    const isTheadContained = false;
     const textReplacingIfBlank = "";
-    const actual = getHtmlByValues(values, textReplacingIfBlank);
+    const actual = getHtmlByValues(values, isTheadContained, textReplacingIfBlank);
     const expected = `<table>
 <tr><th></th></tr>
 </table>`;
@@ -39,11 +42,48 @@ class Test_main{
     const values = [ [ '', 'Python', 'GAS', 'GitHub', 'JavaScript' ]
                     , [ '', '', '', '', '' ]
                   ];
-    const actual = getHtmlByValues(values);
+    const isTheadContained = false;
+    const actual = getHtmlByValues(values, isTheadContained);
     const expected = `<table>
 <tr><th></th><th>Python</th><th>GAS</th><th>GitHub</th><th>JavaScript</th></tr>
 <tr><td>💩</td><td>💩</td><td>💩</td><td>💩</td><td>💩</td></tr>
 </table>`;
+    tester.assertEquals(actual, expected);
+  }
+
+  test_getHtmlByValues_6_1(){
+    const values = [ [ '', 'Python', 'GAS', 'GitHub', 'JavaScript' ]
+                    , [ '', '', '', '', '' ]
+                  ];
+    const isTheadContained = true;
+    const textReplacingIfBlank = "";
+    const actual = getHtmlByValues(values, isTheadContained, textReplacingIfBlank);
+    const expected = `<table>
+<thead><tr><th></th><th>Python</th><th>GAS</th><th>GitHub</th><th>JavaScript</th></tr>
+</thead><tbody><tr><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>`;
+    tester.assertEquals(actual, expected);
+  }
+
+  test_getHtmlByValues_6_2(){
+    const values = [ [ '', 'Python', 'GAS', 'GitHub', 'JavaScript' ] ];
+    const isTheadContained = true;
+    const textReplacingIfBlank = "";
+    const actual = getHtmlByValues(values, isTheadContained, textReplacingIfBlank);
+    const expected = `<table>
+<thead><tr><th></th><th>Python</th><th>GAS</th><th>GitHub</th><th>JavaScript</th></tr>
+</thead></table>`;
+    tester.assertEquals(actual, expected);
+  }
+
+  test_getHtmlByValues_6_3(){
+    const values = [ [ '' ] ];
+    const isTheadContained = true;
+    const textReplacingIfBlank = "";
+    const actual = getHtmlByValues(values, isTheadContained, textReplacingIfBlank);
+    const expected = `<table>
+<thead><tr><th></th></tr>
+</thead></table>`;
     tester.assertEquals(actual, expected);
   }
 
