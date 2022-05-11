@@ -111,4 +111,5 @@ function main(){
   const values = getValuesBySelectedArea();
   const html = getTableByValues(values, true, "");
   console.log(html);
+  return html;
 }
