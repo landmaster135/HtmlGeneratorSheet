@@ -8,7 +8,7 @@ class Test_main{
                   ];
     const isTheadContained = false;
     const textReplacingIfBlank = "";
-    const actual = getHtmlByValues(values, isTheadContained, textReplacingIfBlank);
+    const actual = getTableByValues(values, isTheadContained, textReplacingIfBlank);
     const expected = `<table>
 <tr><th></th><th>Python</th><th>GAS</th><th>GitHub</th><th>JavaScript</th></tr>
 <tr><td></td><td></td><td></td><td></td><td></td></tr>
@@ -20,7 +20,7 @@ class Test_main{
     const values = [ [ '', 'Python', 'GAS', 'GitHub', 'JavaScript' ] ];
     const isTheadContained = false;
     const textReplacingIfBlank = "";
-    const actual = getHtmlByValues(values, isTheadContained, textReplacingIfBlank);
+    const actual = getTableByValues(values, isTheadContained, textReplacingIfBlank);
     const expected = `<table>
 <tr><th></th><th>Python</th><th>GAS</th><th>GitHub</th><th>JavaScript</th></tr>
 </table>`;
@@ -31,7 +31,7 @@ class Test_main{
     const values = [ [ '' ] ];
     const isTheadContained = false;
     const textReplacingIfBlank = "";
-    const actual = getHtmlByValues(values, isTheadContained, textReplacingIfBlank);
+    const actual = getTableByValues(values, isTheadContained, textReplacingIfBlank);
     const expected = `<table>
 <tr><th></th></tr>
 </table>`;
@@ -43,7 +43,7 @@ class Test_main{
                     , [ '', '', '', '', '' ]
                   ];
     const isTheadContained = false;
-    const actual = getHtmlByValues(values, isTheadContained);
+    const actual = getTableByValues(values, isTheadContained);
     const expected = `<table>
 <tr><th></th><th>Python</th><th>GAS</th><th>GitHub</th><th>JavaScript</th></tr>
 <tr><td>💩</td><td>💩</td><td>💩</td><td>💩</td><td>💩</td></tr>
@@ -57,7 +57,7 @@ class Test_main{
                   ];
     const isTheadContained = true;
     const textReplacingIfBlank = "";
-    const actual = getHtmlByValues(values, isTheadContained, textReplacingIfBlank);
+    const actual = getTableByValues(values, isTheadContained, textReplacingIfBlank);
     const expected = `<table>
 <thead><tr><th></th><th>Python</th><th>GAS</th><th>GitHub</th><th>JavaScript</th></tr>
 </thead><tbody><tr><td></td><td></td><td></td><td></td><td></td></tr>
@@ -69,7 +69,7 @@ class Test_main{
     const values = [ [ '', 'Python', 'GAS', 'GitHub', 'JavaScript' ] ];
     const isTheadContained = true;
     const textReplacingIfBlank = "";
-    const actual = getHtmlByValues(values, isTheadContained, textReplacingIfBlank);
+    const actual = getTableByValues(values, isTheadContained, textReplacingIfBlank);
     const expected = `<table>
 <thead><tr><th></th><th>Python</th><th>GAS</th><th>GitHub</th><th>JavaScript</th></tr>
 </thead></table>`;
@@ -80,7 +80,7 @@ class Test_main{
     const values = [ [ '' ] ];
     const isTheadContained = true;
     const textReplacingIfBlank = "";
-    const actual = getHtmlByValues(values, isTheadContained, textReplacingIfBlank);
+    const actual = getTableByValues(values, isTheadContained, textReplacingIfBlank);
     const expected = `<table>
 <thead><tr><th></th></tr>
 </thead></table>`;

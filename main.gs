@@ -4,7 +4,7 @@
  * @param {string} textReplacingIfBlank
  * @return {string}
 */
-function getHtmlByValues(values, isTheadContained, textReplacingIfBlank="💩"){
+function getTableByValues(values, isTheadContained, textReplacingIfBlank="💩"){
   const prefix = "<table>";
   const suffix = "</table>";
   const thead_start = "<thead>";
@@ -109,6 +109,6 @@ function getValuesBySelectedArea(){
 
 function main(){
   const values = getValuesBySelectedArea();
-  const html = getHtmlByValues(values, true, "");
+  const html = getTableByValues(values, true, "");
   console.log(html);
 }
