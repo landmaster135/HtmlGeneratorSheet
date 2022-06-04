@@ -103,7 +103,6 @@ function closeByTag(tag, innerText, textReplacingIfBlank="💩"){
 function getValuesBySelectedArea(){
   const ss = SpreadsheetApp.getActive().getSheetByName(sheetName1st);
   const activeValues = ss.getActiveRange().getValues();
-  console.log(activeValues);
   return activeValues;
 }
 

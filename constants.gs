@@ -1,4 +1,5 @@
-const sheetName1st = "シート1";
+const sheetName1st = "Services";
+const sheetName2nd = "Depndencies";
 
 // Render
 const SITE_TITLE = "HtmlGenereatorSheet";
