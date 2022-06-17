@@ -100,15 +100,44 @@ function closeByTag(tag, innerText, textReplacingIfBlank="💩"){
   return element;
 }
 
+function getCsvByValues(values){
+  let csv = "";
+  let tmp_row = "";
+  for(let i = 0; i < values.length; i++){
+    tmp_row = getCsvByRow(values[i]);
+    csv += `${tmp_row}\n`;
+  }
+  return csv;
+}
+
+function getCsvByRow(row){
+  const sep = ",";
+  let csv = "";
+  for(let i = 0; i< row.length; i++){
+    csv += row[i];
+    if(i !== row.length - 1){
+      csv += sep;
+    }
+  }
+  return csv;
+}
+
 function getValuesBySelectedArea(){
   const ss = SpreadsheetApp.getActive().getSheetByName(sheetName1st);
   const activeValues = ss.getActiveRange().getValues();
   return activeValues;
 }
 
-function main(){
+function mainHtml(){
   const values = getValuesBySelectedArea();
   const html = getTableByValues(values, true, "");
   console.log(html);
   return html;
+}
+
+function mainCsv(){
+  const values = getValuesBySelectedArea();
+  const csv = getCsvByValues(values);
+  console.log(csv);
+  return csv;
 }
