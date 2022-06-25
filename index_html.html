@@ -8,5 +8,6 @@
   <body>
     <h1><?= SITE_TITLE ?></h1>
     <pre><?= mainHtml(); ?></pre>
+    <?!= HtmlService.createHtmlOutputFromFile("index_js").getContent() ?>
   </body>
 </html>
