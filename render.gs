@@ -22,7 +22,7 @@ function displayResultOfMainHtml(e) {
 
 function displayResultOfMainCsv(e) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
-  csvType = "csv";
+  CSV_TYPE = "csv";
   const html = HtmlService.createTemplateFromFile("index_csv")
     .evaluate()
     .setTitle(SITE_TITLE)
@@ -32,7 +32,7 @@ function displayResultOfMainCsv(e) {
 
 function displayResultOfMainTsv(e) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
-  csvType = "tsv";
+  CSV_TYPE = "tsv";
   const html = HtmlService.createTemplateFromFile("index_csv")
     .evaluate()
     .setTitle(SITE_TITLE)

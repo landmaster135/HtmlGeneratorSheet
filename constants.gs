@@ -1,7 +1,7 @@
-const sheetName1st = "Services";
-const sheetName2nd = "Depndencies";
+const SHEET_NAME_1ST = "Services";
+const SHEET_NAME_2ND = "Depndencies";
 
 // Render
 const SITE_TITLE = "HtmlGenereatorSheet";
 
-let csvType = "";
+let CSV_TYPE = "";

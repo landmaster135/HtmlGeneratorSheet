@@ -122,7 +122,7 @@ function getCsvByRow(row, sep=","){
 }
 
 function getValuesBySelectedArea(){
-  const ss = SpreadsheetApp.getActive().getSheetByName(sheetName1st);
+  const ss = SpreadsheetApp.getActive().getSheetByName(SHEET_NAME_1ST);
   const activeValues = ss.getActiveRange().getValues();
   return activeValues;
 }
