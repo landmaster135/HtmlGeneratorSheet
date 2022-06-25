@@ -111,7 +111,6 @@ function getCsvByValues(values, sep=","){
 }
 
 function getCsvByRow(row, sep=","){
-  // const sep = ",";
   let csv = "";
   for(let i = 0; i< row.length; i++){
     csv += row[i];
@@ -121,18 +120,6 @@ function getCsvByRow(row, sep=","){
   }
   return csv;
 }
-
-// function getTsvByRow(row){
-//   const sep = "\n";
-//   let csv = "";
-//   for(let i = 0; i< row.length; i++){
-//     csv += row[i];
-//     if(i !== row.length - 1){
-//       csv += sep;
-//     }
-//   }
-//   return csv;
-// }
 
 function getValuesBySelectedArea(){
   const ss = SpreadsheetApp.getActive().getSheetByName(sheetName1st);
