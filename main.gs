@@ -100,18 +100,18 @@ function closeByTag(tag, innerText, textReplacingIfBlank="💩"){
   return element;
 }
 
-function getCsvByValues(values){
+function getCsvByValues(values, sep=","){
   let csv = "";
   let tmp_row = "";
   for(let i = 0; i < values.length; i++){
-    tmp_row = getCsvByRow(values[i]);
+    tmp_row = getCsvByRow(values[i], sep);
     csv += `${tmp_row}\n`;
   }
   return csv;
 }
 
-function getCsvByRow(row){
-  const sep = ",";
+function getCsvByRow(row, sep=","){
+  // const sep = ",";
   let csv = "";
   for(let i = 0; i< row.length; i++){
     csv += row[i];
@@ -121,6 +121,18 @@ function getCsvByRow(row){
   }
   return csv;
 }
+
+// function getTsvByRow(row){
+//   const sep = "\n";
+//   let csv = "";
+//   for(let i = 0; i< row.length; i++){
+//     csv += row[i];
+//     if(i !== row.length - 1){
+//       csv += sep;
+//     }
+//   }
+//   return csv;
+// }
 
 function getValuesBySelectedArea(){
   const ss = SpreadsheetApp.getActive().getSheetByName(sheetName1st);
@@ -137,7 +149,14 @@ function mainHtml(){
 
 function mainCsv(){
   const values = getValuesBySelectedArea();
-  const csv = getCsvByValues(values);
+  const csv = getCsvByValues(values, ",");
   console.log(csv);
   return csv;
+}
+
+function mainTsv(){
+  const values = getValuesBySelectedArea();
+  const tsv = getCsvByValues(values, "\t");
+  console.log(tsv);
+  return tsv;
 }

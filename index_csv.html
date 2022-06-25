@@ -7,6 +7,10 @@
   </head>
   <body>
     <h1><?= SITE_TITLE ?></h1>
+    <? if(csvType === "csv") { ?>
     <pre><?= mainCsv(); ?></pre>
+    <? }else if(csvType === "tsv"){ ?>
+    <pre><?= mainTsv(); ?></pre>
+    <? } ?>
   </body>
 </html>
