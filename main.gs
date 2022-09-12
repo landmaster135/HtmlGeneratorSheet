@@ -121,6 +121,23 @@ function getCsvByRow(row, sep=","){
   return csv;
 }
 
+function getUrlByValues(values){
+  let urls_text = "";
+  // let tmp_row = "";
+  if(values.length === 0){
+    throw Error("Length of values must be over 0.");
+  }
+  if(values[0].length !== 2){
+    throw Error("Length of values[0] must be 2.");
+  }
+  for(let i = 0; i < values.length; i++){
+    urls_text += `<a href=\"${values[i][1]}\">${values[i][0]}</a>\n`
+    // tmp_row = getCsvByRow(values[i], sep);
+    // csv += `${tmp_row}\n`;
+  }
+  return urls_text;
+}
+
 function getValuesBySelectedArea(){
   const ss = SpreadsheetApp.getActive().getSheetByName(SHEET_NAME_1ST);
   const activeValues = ss.getActiveRange().getValues();
@@ -146,4 +163,11 @@ function mainTsv(){
   const tsv = getCsvByValues(values, "\t");
   console.log(tsv);
   return tsv;
+}
+
+function mainUrl(){
+  const values = getValuesBySelectedArea();
+  const url = getUrlByValues(values);
+  console.log(url);
+  return url;
 }

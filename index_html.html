@@ -7,7 +7,11 @@
   </head>
   <body>
     <h1><?= SITE_TITLE ?></h1>
+    <? if(HTML_TYPE === "table") { ?>
     <pre><?= mainHtml(); ?></pre>
+    <? }else if(HTML_TYPE === "url"){ ?>
+    <pre><?= mainUrl(); ?></pre>
+    <? } ?>
     <?!= HtmlService.createHtmlOutputFromFile("index_js").getContent() ?>
   </body>
 </html>
