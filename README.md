@@ -1,6 +1,6 @@
 # HtmlGeneratorSheet
 
-<img width="30%" alt="logo" src="./img/01-01_html_generator.png">
+<img width="20%" alt="logo" src="./img/01-01_html_generator.png">
 
 Refer [here](https://www.endorphinbath.com/gas-selected-area-to-html-table/).
 
