@@ -9,7 +9,7 @@ function onOpen(){
     , {name: "選択範囲をTSVで出力", functionName: "displayResultOfMainTsv"}
     , {name: "選択範囲の左のtitleに右のURLを埋め込んで出力", functionName: "displayResultOfMainUrl"}
   ];
-  LandmasterLibraryGas.onOpenToAddMenu(menuName, objActions);
+  LandmasterLibraryGas.onOpenToAddSpreadsheetMenu(menuName, objActions);
 }
 
 function displayResultOfMainTable(e) {
