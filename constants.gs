@@ -1,5 +1,5 @@
-const SHEET_NAME_1ST = "Services";
-const SHEET_NAME_2ND = "Depndencies";
+const SHEET_NAME_1STw = "memoServices";
+const SHEET_NAME_2NDw = "memoDepends";
 
 // Render
 const SITE_TITLE = "HtmlGenereatorSheet";

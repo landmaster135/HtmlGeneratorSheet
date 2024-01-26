@@ -139,7 +139,7 @@ function getUrlByValues(values){
 }
 
 function getValuesBySelectedArea(){
-  const ss = SpreadsheetApp.getActive().getSheetByName(SHEET_NAME_1ST);
+  const ss = SpreadsheetApp.getActive().getSheetByName(SHEET_NAME_1STw);
   const activeValues = ss.getActiveRange().getValues();
   return activeValues;
 }
