@@ -15,3 +15,8 @@ Refer [here](https://www.endorphinbath.com/gas-selected-area-to-html-table/).
 ## 3. After Generating
 
 ![](./img/02_htmltable.jpg)
+
+# Change Log
+
+- 2024/01/30: This funcion has been moved to [this repo](https://github.com/landmaster135/GloveDriveSheet).
+- 2024/01/30: Has archived.
